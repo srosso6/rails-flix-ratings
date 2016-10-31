@@ -1,2 +1,46 @@
-<h1> Film </h1>
-<%= @film %>
+<nav>
+  <h1>Flix Ratings</h1>
+  <ul>
+    <li>Top films</li>
+    <li>Your top films</li>
+    <li>Your account</li>
+    <form action='/find_film' id="film_search" method="get">
+      <label for="film_name">Film Title:</label>
+      <input type="text" name="film_name">
+      <label for="film_name">Film Year:</label>
+      <input type="text" name="film_year">
+      <button type="submit">Search</button>
+    </form>
+  </ul>
+</nav>
+
+<h3>The 60s</h3>
+
+<img src=<%= @film[:poster] %> alt=<%= @film[:title] %> id="film_info_poster">
+
+<h2><%= @film[:title] %></h2>
+<p> IMDb Rating: <%= @film[:imdb_rating] %></p>
+<p> Rotten Tomatoes Rating: <%= @film[:tomatoes_rating] %></p>
+<p> Flix Raing: <%= @film[:flix_rating] %></p>
+<p> Release Date: <%= @film[:release_date] %></p>
+<p> Genre: <%= @film[:genre] %></p>
+<p> Director: </p>
+<p> Plot: <%= @film[:description] %></p>
+
+<h2>Is <%= @film[:title] %> one of your top 3 60s movies?</h2>
+<h2>Cast your vote!</h2>
+
+<form action="/vote" method="post">
+  <button type="submit"><img src="/assets/gold.png" alt="gold_vote" class="medal"></button>
+  <button type="submit"><img src="/assets/silver.png" alt="gold_vote" class="medal"></button>
+  <button type="submit"><img src="/assets/bronze.png" alt="gold_vote" class="medal"></button>
+</form>
+
+<h4>Your top rated films of the 60s:</h4>
+
+<p>Mary Poppins</p>
+<img src=<%= @film[:poster] %> alt="" class="small-poster">
+<p>Yet to vote</p>
+<img src="/assets/cast_your_vote.png" alt="cast_your_vote" class="small-poster">
+<p>Yet to vote</p>
+<img src="/assets/cast_your_vote.png" alt="cast_your_vote" class="small-poster">
