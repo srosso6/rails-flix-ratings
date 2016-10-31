@@ -15,4 +15,10 @@ class FilmsController < ApplicationController
     # get films with ranking of 1 - 3 in each decade (sort in FilmRanker?)
   end
 
+  def user_top_films
+    # user =
+    # votes = user.votes
+    # @films = get all the films from the votes
+  end
+
 end
