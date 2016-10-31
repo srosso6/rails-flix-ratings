@@ -1,18 +1,4 @@
-<nav>
-  <h1>Flix Ratings</h1>
-  <ul>
-    <li>Top films</li>
-    <li>Your top films</li>
-    <li>Your account</li>
-    <form action='/find_film' id="film_search" method="get">
-      <label for="film_name">Film Title:</label>
-      <input type="text" name="film_name">
-      <label for="film_name">Film Year:</label>
-      <input type="text" name="film_year">
-      <button type="submit">Search</button>
-    </form>
-  </ul>
-</nav>
+<%= render 'nav' %>
 
 <h3>The 60s</h3>
 
@@ -21,7 +7,7 @@
 <h2><%= @film[:title] %></h2>
 <p> IMDb Rating: <%= @film[:imdb_rating] %></p>
 <p> Rotten Tomatoes Rating: <%= @film[:tomatoes_rating] %></p>
-<p> Flix Raing: <%= @film[:flix_rating] %></p>
+<p> Flix Rating: <%= @film[:flix_rating] %></p>
 <p> Release Date: <%= @film[:release_date] %></p>
 <p> Genre: <%= @film[:genre] %></p>
 <p> Director: </p>
