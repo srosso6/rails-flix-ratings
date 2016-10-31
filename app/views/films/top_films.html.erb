@@ -1,20 +1,31 @@
 <%= render 'nav' %>
 
-<h2>The top 3 films of each decade!</h2>
-<h3>Disagree? Nominate your top 3 films for each decade. Search for your favourite films and cast your vote!</h3>
-<p>1</p>
-<p>2</p>
-<p>3</p>
+<div class="container">
+  <h2 class="main-header">The top 3 films of each decade!</h2>
+  <h3 class="sub-header">Disagree? Nominate your top 3 films for each decade. Search for your favourite films and cast your vote!</h3>
 
-<% @films.each do |film| %>
-  <form action="/find_film/<%= film["imdb_id"] %>" method="get">
-    <button type="submit"><img src=<%= film["poster"] %> alt=<%= film["title"] %> class="top_film_poster"></button>
-  </form>
-  <h4><%= film["title"] %></h4>
-  <h4>Year</h4>
-<% end %>
+  <div class="row">
+    <h2 class="col-md-3 col-md-offset-3 top_nums">1</h2>
+    <h2 class="col-xs-3 top_nums">2</h2>
+    <h2 class="col-xs-3 top_nums">3</h2>
+  </div>
 
-<p>60s</p>
+  <div>
+
+    <% @films.each do |film| %>
+      <div class="top-film col-xs-3" >
+        <form action="/find_film/<%= film["imdb_id"] %>" method="get">
+          <button type="submit"><img src=<%= film["poster"] %> alt=<%= film["title"] %> class="top_film_poster"></button>
+        </form>
+        <h4><%= film["title"] %></h4>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+
+
+
 <p>70s</p>
 <p>80s</p>
 <p>90s</p>

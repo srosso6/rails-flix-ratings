@@ -11,8 +11,7 @@ class FilmsController < ApplicationController
   end
 
   def top_films
-    @films = Film.all
-    # get films with ranking of 1 - 3 in each decade (sort in FilmRanker?)
+    @films = Film.all # get films with ranking of 1 - 3 in each decade (sort in FilmRanker?)
   end
 
   def user_top_films

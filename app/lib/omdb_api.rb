@@ -1,3 +1,5 @@
+require 'date'
+
 class OmdbApi
 
   include HTTParty
@@ -9,6 +11,8 @@ class OmdbApi
       imdb_id: film_info["imdbID"],
       title: film_info["Title"],
       release_date: film_info["Released"],
+      decade: find_decade(film_info["Released"]),
+      director: film_info["Director"],
       genre: film_info["Genre"],
       description: film_info["Plot"],
       imdb_rating: film_info["imdbRating"],
@@ -17,6 +21,12 @@ class OmdbApi
       flix_rating: nil,
       ranking: nil
     }
+  end
+
+  def find_decade(release_date)
+    date = Date.parse(release_date)
+    decade = date.year.to_s.slice(2) + "0s"
+    return decade
   end
 
   def find_film_by_title(film_title, *year)
