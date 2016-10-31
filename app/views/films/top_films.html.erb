@@ -1,0 +1,35 @@
+
+
+<nav>
+  <h1>Flix Ratings</h1>
+  <ul>
+    <li>Top films</li>
+    <li>Your top films</li>
+    <li>Your account</li>
+    <form action='/find_film' id="film_search" method="get">
+      <label for="film_name">Film Title:</label>
+      <input type="text" name="film_name">
+      <label for="film_name">Film Year:</label>
+      <input type="text" name="film_year">
+      <button type="submit">Search</button>
+    </form>
+  </ul>
+</nav>
+
+<h2>Top Films</h2>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+
+<% @films.each do |film| %>
+  <form action="/find_film/<%= film["imdb_id"] %>" method="get">
+    <button type="submit"><img src=<%= film["poster"] %> alt=<%= film["title"] %> class="poster"></button>
+  </form>
+<% end %>
+
+<p>60s</p>
+<p>70s</p>
+<p>80s</p>
+<p>90s</p>
+<p>00s</p>
+<p>10s</p>

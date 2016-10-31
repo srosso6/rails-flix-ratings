@@ -1,0 +1,3 @@
+class VoteService
+
+end
