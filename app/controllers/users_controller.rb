@@ -1,10 +1,7 @@
 class UsersController < ApplicationController
 
-  def index
-  end
-
   def show
-    # @user = User.new(params["user_id"])
+    @user = User.find(params[:id])
   end
 
   def new
