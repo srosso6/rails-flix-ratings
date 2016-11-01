@@ -2,10 +2,12 @@
 
 one:
   id: 1
-  username: MyString
-  email_address: MyString
+  username: saurus
+  email_address: saurus@flixapp.com
+  password_digest: 123
 
 two:
-  id: 1
-  username: MyString
-  email_address: MyString
+  id: 2
+  username: penny
+  email_address: penelope@example.com
+  password_digest: 891

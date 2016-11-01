@@ -14,52 +14,62 @@ users = User.create([
   {
     username: "saurus",
     email_address: "bex@flixapp.com",
-    password: "123"
+    password: "123123a?",
+    password_confirmation: "123123a?"
   },
   {
     username: "squigg",
     email_address: "steve@example.com",
-    password: "456"
+    password: "456456b!",
+    password_confirmation: "456456b!"
   },
   {
     username: "hayli",
     email_address: "hayleigh@example.com",
-    password: "789"
+    password: "?789a789",
+    password_confirmation: "?789a789"
   },
   {
     username: "nanadot",
     email_address: "dorothy@example.com",
-    password: "101"
+    password: "!101b101",
+    password_confirmation: "!101b101"
   },
   {
     username: "nightfly",
     email_address: "jamie@example.com",
-    password: "121"
+    password: "112c!112",
+    password_confirmation: "112c!112"
   },
   {
     username: "ruscky",
     email_address: "maxim@example.com",
-    password: "145"
+    password: "131n_131",
+    password_confirmation: "131n_131"
   },
   {
     username: "pastafish",
     email_address: "neil@example.com",
-    password: "617"
+    password: "aghty165!",
+    password_confirmation: "aghty165!"
   },
   {
     username: "bunceR",
     email_address: "richard@example.com",
-    password: "189"
+    password: "bight_23",
+    password_confirmation: "bight_23"
   },
   {
     username: "wiseowl",
     email_address: "lee@example.com",
-    password: "202"
+    password: "181erre)!",
+    password_confirmation: "181erre)!"
   },
   {
     username: "h41ley",
     email_address: "hailey@example.com",
-    password: "223"
+    password: "192v!192",
+    password_confirmation: "192v!192"
   }
 ])
 
