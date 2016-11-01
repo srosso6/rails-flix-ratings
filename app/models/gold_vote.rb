@@ -1,0 +1,2 @@
+class GoldVote < Vote
+end

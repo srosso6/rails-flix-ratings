@@ -3,7 +3,6 @@ class FilmsController < ApplicationController
   def find_film
     api = OmdbApi.new()
     if params["imdb_id"]
-      puts "get here"
       @film = api.find_film_by_id(params["imdb_id"])
     else
       @film = api.find_film_by_title(params["film_name"], params["film_year"])

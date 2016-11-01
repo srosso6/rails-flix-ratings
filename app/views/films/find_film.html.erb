@@ -22,7 +22,7 @@
       <h2>Is <%= @film[:title] %> one of your top 3 <%= @film[:decade] %> movies?</h2>
       <h2>Cast your vote!</h2>
 
-      <form action="/vote" method="post">
+      <form action="/vote" method="get">
         <button type="submit"><img src="/assets/gold.png" alt="gold_vote" class="medal"></button>
         <button type="submit"><img src="/assets/silver.png" alt="gold_vote" class="medal"></button>
         <button type="submit"><img src="/assets/bronze.png" alt="gold_vote" class="medal"></button>
