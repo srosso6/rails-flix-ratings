@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root 'users#new'   # should make this a welcome page
+  root 'films#top_films'   # should make this a welcome page
 
   get '/find_film/:imdb_id', to: 'films#find_film'
   get '/find_film', to: 'films#find_film'
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/user_top_films', to: 'films#user_top_films'
 
   resources :users
+  resources :sessions
 
   get '/vote', to: 'users#vote'
 end

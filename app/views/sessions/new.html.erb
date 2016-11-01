@@ -1,14 +1,16 @@
 <h3 class="sub-header">Login</h3>
-<%= form_for :user, url: {action: "create"}, html: {class: "login_register"} do |f| %>
+<%= form_for :session, url: {action: "create"}, html: {class: "login_register"} do |f| %>
   <p>
     <%= f.label :username %><br>
     <%= f.text_field :username %>
   </p>
   <p>
     <%= f.label :password %><br>
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
   </p>
   <p>
     <%= f.submit "Login" %>
   </p>
 <% end %>
+
+<p>New User? <%= link_to 'Sign up here', '/users/new' %></p>
