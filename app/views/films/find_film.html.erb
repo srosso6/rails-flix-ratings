@@ -5,28 +5,25 @@
 
     <div class="panel panel-default">
       <h2><%= @film[:title] %></h2>
-    <div class="panel-body">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <p> IMDb Rating: <%= @film[:imdb_rating] %></p>
-          <p> Rotten Tomatoes Rating: <%= @film[:tomatoes_rating] %></p>
-          <p> Flix Rating: <%= @film[:flix_rating] %></p>
+      <div class="panel-body">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <p> IMDb Rating: <%= @film[:imdb_rating] %></p>
+            <p> Rotten Tomatoes Rating: <%= @film[:tomatoes_rating] %></p>
+            <p> Flix Rating: <%= @film[:flix_rating] %></p>
+          </div>
         </div>
+            <p> Release Date: <%= @film[:release_date] %></p>
+            <p> Genre: <%= @film[:genre] %></p>
+            <p> Director: <%= @film[:director] %></p>
+            <p> Plot: <%= @film[:description] %></p>
+
+        <h2>Is <%= @film[:title] %> one of your top 3 <%= @film[:decade] %> movies?</h2>
+        <h2>Cast your vote!</h2>
+          <%= link_to image_tag("/assets/gold.png"), {:controller => 'users', :action => "vote", vote_type: "gold", film_imdb_id: @film[:imdb_id], user: current_user.id } %>
+          <%= link_to image_tag("/assets/silver.png"), {:controller => 'users', :action => "vote", vote_type: "silver" } %>
+          <%= link_to image_tag("/assets/bronze.png"), {:controller => 'users', :action => "vote", vote_type: "bronze" } %>
       </div>
-          <p> Release Date: <%= @film[:release_date] %></p>
-          <p> Genre: <%= @film[:genre] %></p>
-          <p> Director: <%= @film[:director] %></p>
-          <p> Plot: <%= @film[:description] %></p>
-
-      <h2>Is <%= @film[:title] %> one of your top 3 <%= @film[:decade] %> movies?</h2>
-      <h2>Cast your vote!</h2>
-
-      <form action="/vote" method="get">
-        <button type="submit"><img src="/assets/gold.png" alt="gold_vote" class="medal"></button>
-        <button type="submit"><img src="/assets/silver.png" alt="gold_vote" class="medal"></button>
-        <button type="submit"><img src="/assets/bronze.png" alt="gold_vote" class="medal"></button>
-      </form>
-    </div>
     </div>
 
     <div class="panel panel-default">

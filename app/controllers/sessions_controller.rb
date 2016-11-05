@@ -1,4 +1,9 @@
 class SessionsController < ApplicationController
+
+  def index
+    redirect_to '/sessions/new'
+  end
+
   def new
   end
 
