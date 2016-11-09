@@ -9,7 +9,6 @@
   </div>
 
   <div>
-
     <% @films.each do |film| %>
       <div class="top-film col-xs-3" >
         <form action="/find_film/<%= film["imdb_id"] %>" method="get">

@@ -40,12 +40,6 @@ class OmdbApi
   #   }])
   # end
 
-  def find_decade(release_date)
-    date = Date.parse(release_date)
-    decade = date.year.to_s.slice(2) + "0s"
-    return decade
-  end
-
   def find_film_by_title(film_title, *year)
     if year[0] == nil
       response = self.class.get(API_URL + "t=" + film_title)
@@ -68,6 +62,12 @@ class OmdbApi
     else
       raise response.response
     end
+  end
+
+  def find_decade(release_date)
+    date = Date.parse(release_date)
+    decade = date.year.to_s.slice(2) + "0"
+    return decade
   end
 
 end

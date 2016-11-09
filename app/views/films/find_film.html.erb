@@ -1,5 +1,5 @@
 <div class="container">
-    <h3 class="main-header"><%= @film[:decade] %></h3>
+    <h3 class="main-header"><%= @film[:decade] %>s</h3>
 
     <img src=<%= @film[:poster] %> alt=<%= @film[:title] %> id="film_info_poster">
 
@@ -18,17 +18,17 @@
             <p> Director: <%= @film[:director] %></p>
             <p> Plot: <%= @film[:description] %></p>
 
-        <h2>Is <%= @film[:title] %> one of your top 3 <%= @film[:decade] %> movies?</h2>
+        <h2>Is <%= @film[:title] %> one of your top 3 <%= @film[:decade] %>s  movies?</h2>
         <h2>Cast your vote!</h2>
-          <%= link_to image_tag("/assets/gold.png"), {:controller => 'users', :action => "vote", vote_type: "gold", film_imdb_id: @film[:imdb_id], user: current_user.id } %>
-          <%= link_to image_tag("/assets/silver.png"), {:controller => 'users', :action => "vote", vote_type: "silver" } %>
-          <%= link_to image_tag("/assets/bronze.png"), {:controller => 'users', :action => "vote", vote_type: "bronze" } %>
+          <%= link_to image_tag("/assets/gold.png"), {:controller => 'votes', :action => "vote", vote_type: "GoldVote", film_imdb_id: @film[:imdb_id], user: current_user.id } %>
+          <%= link_to image_tag("/assets/silver.png"), {:controller => 'votes', :action => "vote", vote_type: "SilverVote", film_imdb_id: @film[:imdb_id], user: current_user.id } %>
+          <%= link_to image_tag("/assets/bronze.png"), {:controller => 'votes', :action => "vote", vote_type: "BronzeVote", film_imdb_id: @film[:imdb_id], user: current_user.id } %>
       </div>
     </div>
 
     <div class="panel panel-default">
     <div class="panel-heading">
-      <h4 class="panel-title">Your top rated films of the 60s:</h4>
+      <h4 class="panel-title">Your top rated films of the <%= @film[:decade] %>s:</h4>
     </div>
     <div class="panel-body">
       <p>Mary Poppins</p>

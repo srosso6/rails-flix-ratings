@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   get '/top_films', to: 'films#top_films'
   get '/user_top_films', to: 'films#user_top_films'
 
-  resources :users
-  resources :sessions
+  resources :users, :votes, :sessions
 
-  get '/vote', to: 'users#vote'
+  get '/vote', to: 'votes#vote'
+  # get '/revoke_vote', to: 'votes#revoke_vote'
+
 end

@@ -21,10 +21,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def vote
-    vote = VoteService.new
-    vote.manage_vote(params[:vote_type], params[:film_imdb_id], params[:user])
-    redirect_to '/user_top_films'
+  def destroy
   end
 
   private
