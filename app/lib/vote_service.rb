@@ -10,6 +10,7 @@ class VoteService
     end
     if vote
       update_flix_rating(film)
+      update_ranks()
     else
       #something if vote hasn't been saved
     end
@@ -58,6 +59,11 @@ class VoteService
 
   def update_flix_rating(film)
     Film.update(film.id, flix_rating: get_new_flix_rating(film))
+  end
+
+  def update_ranks(film)
+    film_ranker = FilmRanker.new
+    return film_ranker.rank_films
   end
 
 end
