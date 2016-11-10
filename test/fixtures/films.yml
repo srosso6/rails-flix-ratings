@@ -10,7 +10,8 @@ one:
   tomatoes_rating: 7.2
   poster: https://images-na.ssl-images-amazon.com/images/M/MV5BMjAwMTExODExNl5BMl5BanBnXkFtZTgwMjM2MDgyMTE@._V1_SX300.jpg
   flix_rating: 6.0
-  ranking: nil
+  combined_rating: null
+  ranking: 6
 
 two:
   imdb_id: tt0073195
@@ -24,7 +25,8 @@ two:
   tomatoes_rating: 9.2
   poster: https://images-na.ssl-images-amazon.com/images/M/MV5BNDcxODkyMjY4MF5BMl5BanBnXkFtZTgwOTk5NTc5MDE@._V1_SX300.jpg
   flix_rating: 2.6
-  ranking: nil
+  combined_rating: null
+  ranking: null
 
 three:
   imdb_id: tt0078748
@@ -38,7 +40,8 @@ three:
   tomatoes_rating: 9.0
   poster: https://images-na.ssl-images-amazon.com/images/M/MV5BNDNhN2IxZWItNGEwYS00ZDNhLThiM2UtODU3NWJlZjBkYjQxXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg
   flix_rating: 8.18
-  ranking: nil
+  combined_rating: null
+  ranking: null
 
 four:
   imdb_id: tt0075860
@@ -52,7 +55,8 @@ four:
   tomatoes_rating: 8.9
   poster: https://images-na.ssl-images-amazon.com/images/M/MV5BMjM1NjE5NjQxN15BMl5BanBnXkFtZTgwMjYzMzQxMDE@._V1_SX300.jpg
   flix_rating: 6.75
-  ranking: nil
+  combined_rating: null
+  ranking: null
 
 five:
   imdb_id: tt0109830
@@ -65,8 +69,9 @@ five:
   imdb_rating: 8.8
   tomatoes_rating: 7.2
   poster: https://images-na.ssl-images-amazon.com/images/M/MV5BYThjM2MwZGMtMzg3Ny00NGRkLWE4M2EtYTBiNWMzOTY0YTI4XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_SX300.jpg
-  flix_rating: nil
-  ranking: nil
+  flix_rating: 8.18
+  combined_rating: null
+  ranking: null
 
 six:
   imdb_id: tt0204946
@@ -80,7 +85,8 @@ six:
   tomatoes_rating: 5.9
   poster: https://images-na.ssl-images-amazon.com/images/M/MV5BNjhiMjk1YWYtMjgyYy00YTFhLTk0NTMtN2Q5MDZjMWEyYWI1XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg
   flix_rating: 2.81
-  ranking: nil
+  combined_rating: null
+  ranking: null
 
 seven:
   imdb_id: tt1375666
@@ -93,8 +99,9 @@ seven:
   imdb_rating: 8.8
   tomatoes_rating: 8.1
   poster: https://images-na.ssl-images-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg
-  flix_rating: nil
-  ranking: nil
+  flix_rating: 6.75
+  combined_rating: null
+  ranking: null
 
 eight:
   imdb_id: tt0058331
@@ -108,7 +115,8 @@ eight:
   tomatoes_rating: 8.3
   poster: https://images-na.ssl-images-amazon.com/images/M/MV5BMTY1MDQwNTM3Ml5BMl5BanBnXkFtZTgwNzA3ODg3MDE@._V1_SX300.jpg
   flix_rating: 10.0
-  ranking: nil
+  combined_rating: null
+  ranking: null
 
 nine:
   imdb_id: tt0059742
@@ -122,7 +130,8 @@ nine:
   tomatoes_rating: 8.0
   poster: https://images-na.ssl-images-amazon.com/images/M/MV5BMGYyZjk4MDMtYTZmMS00YWM2LTgxNDQtM2EwNzQ2MDZhNWQxXkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_SX300.jpg
   flix_rating: 6.0
-  ranking: nil
+  combined_rating: null
+  ranking: null
 
 ten:
   imdb_id: tt0088763
@@ -136,7 +145,8 @@ ten:
   tomatoes_rating: 8.7
   poster: https://images-na.ssl-images-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg
   flix_rating: 10.0
-  ranking: nil
+  combined_rating: null
+  ranking: null
 
 eleven:
   imdb_id: tt0096866
@@ -150,7 +160,8 @@ eleven:
   tomatoes_rating: 0.0
   poster: https://images-na.ssl-images-amazon.com/images/M/MV5BODA1NzU1MTAwN15BMl5BanBnXkFtZTcwNDU2NDMzMQ@@._V1_SX300.jpg
   flix_rating: 2.0
-  ranking: nil
+  combined_rating: null
+  ranking: null
 
 twelve:
   imdb_id: tt0338013
@@ -164,7 +175,8 @@ twelve:
   tomatoes_rating: 8.4
   poster: https://images-na.ssl-images-amazon.com/images/M/MV5BMTY4NzcwODg3Nl5BMl5BanBnXkFtZTcwNTEwOTMyMw@@._V1_SX300.jpg
   flix_rating: 8.0
-  ranking: nil
+  combined_rating: null
+  ranking: null
 
 thirteen:
   imdb_id: tt0087363
@@ -177,8 +189,9 @@ thirteen:
   imdb_rating: 7.2
   tomatoes_rating: 7.3
   poster: https://images-na.ssl-images-amazon.com/images/M/MV5BZDVjN2FkYTQtNTBlOC00MjM5LTgzMWEtZWRlNGUyYmNiOTFiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg
-  flix_rating: nil
-  ranking: nil
+  flix_rating: 6.0
+  combined_rating: null
+  ranking: null
 
 fourteen:
   imdb_id: tt0110357
@@ -191,8 +204,9 @@ fourteen:
   imdb_rating: 8.5
   tomatoes_rating: 8.3
   poster: https://images-na.ssl-images-amazon.com/images/M/MV5BMjEyMzgwNTUzMl5BMl5BanBnXkFtZTcwNTMxMzM3Ng@@._V1_SX300.jpg
-  flix_rating:
-  ranking: nil
+  flix_rating: 10.0
+  combined_rating: null
+  ranking: null
 
 fifteen:
   imdb_id: tt3691740
@@ -205,8 +219,9 @@ fifteen:
   imdb_rating: 6.7
   tomatoes_rating: 6.8
   poster: https://images-na.ssl-images-amazon.com/images/M/MV5BMjI5MjI4NTEzOF5BMl5BanBnXkFtZTgwNjM2Nzg3NzE@._V1_SX300.jpg
-  flix_rating: nil
-  ranking: nil
+  flix_rating: 5.6
+  combined_rating: null
+  ranking: null
 
 sixteen:
   imdb_id: tt2267998
@@ -220,7 +235,8 @@ sixteen:
   tomatoes_rating: 8.0
   poster: https://images-na.ssl-images-amazon.com/images/M/MV5BMTk0MDQ3MzAzOV5BMl5BanBnXkFtZTgwNzU1NzE3MjE@._V1_SX300.jpg
   flix_rating: 6.0
-  ranking: nil
+  combined_rating: null
+  ranking: null
 
 seventeen:
   imdb_id: tt0332280
@@ -234,7 +250,8 @@ seventeen:
   tomatoes_rating: 0.0
   poster: https://images-na.ssl-images-amazon.com/images/M/MV5BMTk3OTM5Njg5M15BMl5BanBnXkFtZTYwMzA0ODI3._V1_SX300.jpg
   flix_rating: 2.0
-  ranking: nil
+  combined_rating: null
+  ranking: null
 
 eighteen:
   imdb_id: tt0087332
@@ -248,7 +265,8 @@ eighteen:
   tomatoes_rating: 8.1
   poster: https://images-na.ssl-images-amazon.com/images/M/MV5BMTkxMjYyNzgwMl5BMl5BanBnXkFtZTgwMTE3MjYyMTE@._V1_SX300.jpg
   flix_rating: 10.0
-  ranking: nil
+  combined_rating: null
+  ranking: null
 
 nineteen:
   imdb_id: tt0057115
@@ -262,7 +280,8 @@ nineteen:
   tomatoes_rating: 0.0
   poster: https://images-na.ssl-images-amazon.com/images/M/MV5BMjI2MTQwNDI3Nl5BMl5BanBnXkFtZTcwNDk4MTkzNA@@._V1_SX300.jpg
   flix_rating: 4.33
-  ranking: nil
+  combined_rating: null
+  ranking: null
 
 twenty:
   imdb_id: tt0314331
@@ -275,5 +294,36 @@ twenty:
   imdb_rating: 7.7
   tomatoes_rating: 6.3
   poster: https://images-na.ssl-images-amazon.com/images/M/MV5BMTY4NjQ5NDc0Nl5BMl5BanBnXkFtZTYwNjk5NDM3._V1_SX300.jpg
-  flix_rating: 6.0
-  ranking: nil
+  flix_rating: 6.75
+  combined_rating: null
+  ranking: null
+
+twentyone:
+  imdb_id: tt0212338
+  title: Meet The Parents
+  release_date: 2000-10-06
+  decade: 0
+  director: Jay Roach
+  genre: Comedy, Romance
+  description: Male nurse Greg Focker meets his girlfriend's parents before proposing, but her suspicious father is every date's worst nightmare.
+  imdb_rating: 7.0
+  tomatoes_rating: 6.9
+  poster: https://images-na.ssl-images-amazon.com/images/M/MV5BMTc2NzYyMjc5NV5BMl5BanBnXkFtZTgwOTEwODMxMDE@._V1_SX300.jpg
+  flix_rating: null
+  combined_rating: null
+  ranking: null
+
+twentytwo:
+  imdb_id: tt0375173
+  title: Alfie
+  release_date: 2004-11-05
+  decade: 0
+  director: Charles Shyer
+  genre: Comedy, Drama, Romance
+  description: A cockney womanizer learns the hard way about the dangers of his actions.
+  imdb_rating: 6.2
+  tomatoes_rating: 5.5
+  poster: https://images-na.ssl-images-amazon.com/images/M/MV5BNTBjOWQwZDEtZWRlYi00YzY0LTg3NDQtYzRiYjk2YjMyMzEyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg
+  flix_rating: null
+  combined_rating: null
+  ranking: null

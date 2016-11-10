@@ -15,11 +15,11 @@ class RatingCalculator
     return flix_rating * 2
   end
 
-  def overall_rating(film)
+  def combined_rating(film)
     if film.flix_rating == nil
-      return 0
+      return nil
     else
-      return (film.tomatoes_rating + film.imdb_rating + film.flix_rating) / 3
+      return ((film.tomatoes_rating + film.imdb_rating + film.flix_rating) / 3).round(2)
     end
   end
 
