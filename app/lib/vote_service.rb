@@ -10,7 +10,7 @@ class VoteService
     end
     if vote
       update_ratings(film)
-      update_ranks()
+      update_ranks
     else
       # TODO: something if vote hasn't been saved
     end
@@ -24,7 +24,7 @@ class VoteService
       Film.delete(film.id)
     else
       update_ratings(film)
-      update_ranks()
+      update_ranks
     end
   end
 
@@ -32,9 +32,9 @@ class VoteService
     return Film.find_by(imdb_id: imdb_id) || save_film(imdb_id)
   end
 
-  def save_film
+  def save_film(imdb_id)
     api = OmdbApi.new
-    film = Film.new(api.find_film_by_id(imdb_id))
+    film = api.find_film_by_id(imdb_id)
     film.save
     return film
   end
@@ -59,9 +59,13 @@ class VoteService
     Film.update(film.id, combined_rating: rating_calc.combined_rating(film))
   end
 
-  def update_ranks(film)
+  def update_ranks
+    Film.update_all(ranking: nil)
     film_ranker = FilmRanker.new
-    return film_ranker.rank_films
+    top_film_rankings = film_ranker.rank_films
+    for film in top_film_rankings
+      Film.update(film[:film_id], ranking: film[:ranking])
+    end
   end
 
 end

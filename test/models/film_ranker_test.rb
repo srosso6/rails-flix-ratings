@@ -4,8 +4,9 @@ class FilmRankerTest < ActiveSupport::TestCase
 
   def setup
     @film_ranker = FilmRanker.new
-    @films = Film.new([
+    @film_1 = Film.new(
       {
+        id: 1,
         imdb_id: "tt1375666",
         title: "Inception",
         release_date: "16 Jul 2010",
@@ -19,8 +20,11 @@ class FilmRankerTest < ActiveSupport::TestCase
         flix_rating: 6.75,
         combined_rating: 7.88,
         ranking: nil
-      },
+      }
+    )
+    @film_2 = Film.new(
       {
+        id: 2,
         imdb_id: "tt0059742",
         title: "The Sound of Music",
         release_date: "29 Mar 1965",
@@ -34,8 +38,11 @@ class FilmRankerTest < ActiveSupport::TestCase
         flix_rating: 7.09,
         combined_rating: 7.7,
         ranking: nil
-      },
+      }
+    )
+    @film_3 = Film.new(
       {
+        id: 3,
         imdb_id: "tt0204946",
         title: "Bring It On",
         release_date: "25 Aug 2000",
@@ -49,8 +56,11 @@ class FilmRankerTest < ActiveSupport::TestCase
         flix_rating: 4.4,
         combined_rating: 5.4,
         ranking: nil
-      },
+      }
+    )
+    @film_4 = Film.new(
       {
+        id: 4,
         imdb_id: "tt0058331",
         title: "Mary Poppins",
         release_date: "11 Sep 1964",
@@ -64,8 +74,11 @@ class FilmRankerTest < ActiveSupport::TestCase
         flix_rating: 7.67,
         combined_rating: 8.09,
         ranking: nil
-      },
+      }
+    )
+    @film_5 = Film.new(
       {
+        id: 5,
         imdb_id: "tt0338013",
         title: "Eternal Sunshine of the Spotless Mind",
         release_date: "19 Mar 2004",
@@ -80,28 +93,46 @@ class FilmRankerTest < ActiveSupport::TestCase
         combined_rating: 8.59,
         ranking: nil
       }
-    ])
+    )
+
+    @films = [@film_1, @film_2, @film_3, @film_4, @film_5]
+    @films_long= ["film_1", "film_2", "film_3", "film_4", "film_5"]
+    @films_short = ["film_1", "film_2"]
 
   end
 
-  test "should sort films by decade" do
-    films_by_decade = @film_ranker.sort_films_by_decade(@films)
-    assert_equal [films[1], films[3], films[2], films[4], films[0]] , films_by_decade
+  test "should group films by decade" do
+    films_by_decade = @film_ranker.group_films_by_decade(@films)
+    assert_equal({10 =>[@film_1], 60 =>[@film_2, @film_4], 0=>[@film_3, @film_5]}, films_by_decade)
   end
 
-  # test "should return all films with flix rating" do
-  #   films_with_rating = @film_ranker.get_films_with_rating
-  #   assert_equal 20, films_with_rating.length
-  # end
-  #
-  # test "shold return 18 films" do
-  #   films_with_rating = @film_ranker.get_films_with_rating
-  #   top_films = @film_ranker.get_top_films(films_with_rating)
-  #   assert_equal 18, top_films.length
-  # end
+  test "should sort films by rating" do
+    films_by_decade = @film_ranker.group_films_by_decade(@films)
+    top_films = @film_ranker.get_top_3_films_by_combined_rating(films_by_decade)
+    assert_equal({10 =>[@film_1], 60 =>[@film_4, @film_2], 0=>[@film_5, @film_3]}, top_films)
+  end
 
-  # test "should save film ranking" do
-  #
-  # end
+  test "should create array with first three items" do
+    top_films = @film_ranker.get_top_3_films(@films_long)
+    assert_equal ["film_1", "film_2", "film_3"] , top_films
+  end
+
+  test "should create array with same number of items" do
+    top_films = @film_ranker.get_top_3_films(@films_short)
+    assert_equal ["film_1", "film_2"] , top_films
+  end
+
+  test "should save film ranking" do
+    films_by_decade = @film_ranker.group_films_by_decade(@films)
+    top_films = @film_ranker.get_top_3_films_by_combined_rating(films_by_decade)
+    top_film_rankings = @film_ranker.save_film_ranking(top_films)
+    assert_equal [
+      {film_id: 4 , ranking: 1},
+      {film_id: 2 , ranking: 2},
+      {film_id: 5 , ranking: 1},
+      {film_id: 3 , ranking: 2},
+      {film_id: 1 , ranking: 1}
+    ], top_film_rankings
+  end
 
 end

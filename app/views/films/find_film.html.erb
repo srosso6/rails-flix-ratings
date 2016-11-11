@@ -27,16 +27,28 @@
     </div>
 
     <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">Your top rated films of the <%= @film[:decade] %>s:</h4>
+      <div class="panel-heading">
+        <h4 class="panel-title">Your top rated films of the <%= @film[:decade] %>s:</h4>
+      </div>
+      <div class="panel-body">
+        <% @data.each do |item| %>
+          <% if item[:decade] == @film[:decade] %>
+            <div class="row">
+              <p class=""><%= item[:decade] %></p>
+              <% ["GoldVote","SilverVote","BronzeVote"].each do |vote_type| %>
+                <% if !item[:votes][vote_type] %>
+                  <div class="small-poster">
+                    <img src="/assets/cast_your_vote" alt="Yet to vote">
+                  </div>
+                <% else %>
+                  <div class="small-poster" >
+                    <img src=<%= item[:votes][vote_type]["poster"] %> alt=<%= item[:votes][vote_type]["title"] %> >
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
-    <div class="panel-body">
-      <p>Mary Poppins</p>
-      <img src=<%= @film[:poster] %> alt="" class="small-poster">
-      <p>Yet to vote</p>
-      <img src="/assets/cast_your_vote.png" alt="cast_your_vote" class="small-poster">
-      <p>Yet to vote</p>
-      <img src="/assets/cast_your_vote.png" alt="cast_your_vote" class="small-poster">
-    </div>
-  </div>
 </div>

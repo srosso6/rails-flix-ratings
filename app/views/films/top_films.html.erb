@@ -3,28 +3,29 @@
   <h3 class="sub-header">Disagree? Nominate your top 3 films for each decade. Search for your favourite films and cast your vote!</h3>
 
   <div class="row">
-    <h2 class="col-md-3 col-md-offset-3 top_nums">1</h2>
+    <h2 class="col-xs-3 col-md-offset-1 top_nums">1</h2>
     <h2 class="col-xs-3 top_nums">2</h2>
     <h2 class="col-xs-3 top_nums">3</h2>
   </div>
 
   <div>
-    <% @films.each do |film| %>
-      <div class="top-film col-xs-3" >
-        <form action="/find_film/<%= film["imdb_id"] %>" method="get">
-          <button type="submit"><img src=<%= film["poster"] %> alt=<%= film["title"] %> class="top_film_poster"></button>
-        </form>
-        <h4><%= film["title"] %></h4>
+    <% @data.each do |item| %>
+      <div class="row">
+        <p class="col-xs-1"><%= item[:decade] %></p>
+        <% [1,2,3].each do |ranking| %>
+          <% if !item[:top_films][ranking] %>
+            <div class="top-film col-xs-3">
+              <p>nothing!</p>
+            </div>
+          <% else %>
+            <div class="top-film col-xs-3" >
+              <form action="/find_film/<%= item[:top_films][ranking]["imdb_id"] %>" method="get">
+                <button type="submit"><img src=<%= item[:top_films][ranking]["poster"] %> alt=<%= item[:top_films][ranking]["title"] %> class="top_film_poster"></button>
+              </form>
+            </div>
+          <% end %>
+        <% end %>
       </div>
     <% end %>
   </div>
-
 </div>
-
-
-
-<p>70s</p>
-<p>80s</p>
-<p>90s</p>
-<p>00s</p>
-<p>10s</p>
