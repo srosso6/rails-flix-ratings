@@ -9,23 +9,36 @@
   </div>
 
   <div>
-    <% @data.each do |item| %>
-      <div class="row">
-        <p class="col-xs-1"><%= item[:decade] %></p>
-        <% [1,2,3].each do |ranking| %>
-          <% if !item[:top_films][ranking] %>
+    <% if @data %>
+      <% @data.each do |item| %>
+        <div class="row">
+          <p class="col-xs-1"><%= item[:decade] %></p>
+          <% [1, 2, 3].each do |ranking| %>
+            <% if !item[:top_films][ranking] %>
+              <div class="top-film col-xs-3">
+                <img src="<%= "/assets/#{ranking}.png" %>" alt="No vote yet" class="top_film_poster">
+              </div>
+            <% else %>
+              <div class="top-film col-xs-3" >
+                <form action="/find_film/<%= item[:top_films][ranking]["imdb_id"] %>" method="get">
+                  <button type="submit"><img src=<%= item[:top_films][ranking]["poster"] %> alt=<%= item[:top_films][ranking]["title"] %> class="top_film_poster"></button>
+                </form>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    <% else %>
+      <% ["60", "70", "80", "90", "00", "10"].each do |item| %>
+        <div class="row">
+          <p class="col-xs-1"><%= item %></p>
+          <% [1, 2, 3].each do |ranking| %>
             <div class="top-film col-xs-3">
-              <p>nothing!</p>
-            </div>
-          <% else %>
-            <div class="top-film col-xs-3" >
-              <form action="/find_film/<%= item[:top_films][ranking]["imdb_id"] %>" method="get">
-                <button type="submit"><img src=<%= item[:top_films][ranking]["poster"] %> alt=<%= item[:top_films][ranking]["title"] %> class="top_film_poster"></button>
-              </form>
+              <img src="<%= "/assets/#{ranking}.png" %>" alt="No vote yet" class="top_film_poster">
             </div>
           <% end %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

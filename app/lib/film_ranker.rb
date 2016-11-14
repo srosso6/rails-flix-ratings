@@ -22,7 +22,7 @@ class FilmRanker
       end
     end
     return films_by_decade
-    # if some movies have the same ratings, this won't work
+    # TODO: something if some movies have the same ratings
   end
 
   def get_top_3_films(films)
@@ -34,17 +34,13 @@ class FilmRanker
   end
 
   def save_film_ranking(top_films)
-    # i = 1
-    # while i < 19
     top_film_rankings = []
     [60, 70, 80, 90, 0, 10].each do |decade|
       if top_films[decade]
         i = 1
         while i < top_films[decade].length + 1
-          # for film in top_films[decade]
           top_film_rankings.push({film_id: top_films[decade][i-1].id, ranking: i})
           i += 1
-          # end
         end
       end
     end

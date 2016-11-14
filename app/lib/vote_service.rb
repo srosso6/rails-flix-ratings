@@ -1,4 +1,4 @@
-class VoteService
+ class VoteService
 
   def manage_vote(vote_type, imdb_id, user_id)
     # TODO: Tweak so cannot vote twice in same category
@@ -24,7 +24,6 @@ class VoteService
       Film.delete(film.id)
     else
       update_ratings(film)
-      update_ranks
     end
   end
 
@@ -55,8 +54,8 @@ class VoteService
 
   def update_ratings(film)
     rating_calc = RatingCalculator.new
-    Film.update(film.id, flix_rating: rating_calc.flix_rating(film))
-    Film.update(film.id, combined_rating: rating_calc.combined_rating(film))
+    film.update(flix_rating: rating_calc.flix_rating(film))
+    film.update(combined_rating: rating_calc.combined_rating(film))
   end
 
   def update_ranks

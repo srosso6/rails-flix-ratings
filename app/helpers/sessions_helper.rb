@@ -17,4 +17,8 @@ module SessionsHelper
     @current_user = nil
   end
 
+  def previous_page
+    session[:return_to] = URI(request.referer || '').path
+  end
+
 end

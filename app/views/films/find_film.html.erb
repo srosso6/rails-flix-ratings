@@ -13,16 +13,16 @@
             <p> Flix Rating: <%= @film[:flix_rating] %></p>
           </div>
         </div>
-            <p> Release Date: <%= @film[:release_date] %></p>
-            <p> Genre: <%= @film[:genre] %></p>
-            <p> Director: <%= @film[:director] %></p>
-            <p> Plot: <%= @film[:description] %></p>
+          <p> Release Date: <%= @film[:release_date] %></p>
+          <p> Genre: <%= @film[:genre] %></p>
+          <p> Director: <%= @film[:director] %></p>
+          <p> Plot: <%= @film[:description] %></p>
 
-        <h2>Is <%= @film[:title] %> one of your top 3 <%= @film[:decade] %>s  movies?</h2>
-        <h2>Cast your vote!</h2>
-          <%= link_to image_tag("/assets/gold.png"), {:controller => 'votes', :action => "vote", vote_type: "GoldVote", film_imdb_id: @film[:imdb_id], user: current_user.id } %>
-          <%= link_to image_tag("/assets/silver.png"), {:controller => 'votes', :action => "vote", vote_type: "SilverVote", film_imdb_id: @film[:imdb_id], user: current_user.id } %>
-          <%= link_to image_tag("/assets/bronze.png"), {:controller => 'votes', :action => "vote", vote_type: "BronzeVote", film_imdb_id: @film[:imdb_id], user: current_user.id } %>
+          <h2>Is <%= @film[:title] %> one of your top 3 <%= @film[:decade] %>s  movies?</h2>
+          <h2>Cast your vote!</h2>
+          <%= link_to image_tag("/assets/1.png"), {:controller => 'votes', :action => "vote", vote_type: "GoldVote", film_imdb_id: @film[:imdb_id] } %>
+          <%= link_to image_tag("/assets/2.png"), {:controller => 'votes', :action => "vote", vote_type: "SilverVote", film_imdb_id: @film[:imdb_id] } %>
+          <%= link_to image_tag("/assets/3.png"), {:controller => 'votes', :action => "vote", vote_type: "BronzeVote", film_imdb_id: @film[:imdb_id] } %>
       </div>
     </div>
 
@@ -30,25 +30,34 @@
       <div class="panel-heading">
         <h4 class="panel-title">Your top rated films of the <%= @film[:decade] %>s:</h4>
       </div>
-      <div class="panel-body">
-        <% @data.each do |item| %>
-          <% if item[:decade] == @film[:decade] %>
-            <div class="row">
-              <p class=""><%= item[:decade] %></p>
-              <% ["GoldVote","SilverVote","BronzeVote"].each do |vote_type| %>
-                <% if !item[:votes][vote_type] %>
-                  <div class="small-poster">
-                    <img src="/assets/cast_your_vote" alt="Yet to vote">
-                  </div>
-                <% else %>
-                  <div class="small-poster" >
-                    <img src=<%= item[:votes][vote_type]["poster"] %> alt=<%= item[:votes][vote_type]["title"] %> >
-                  </div>
+      <% if logged_in? %>
+        <div class="panel-body">
+          <% @data.each do |item| %>
+            <% if item[:decade] == @film[:decade] %>
+              <div class="row">
+                <% ["GoldVote","SilverVote","BronzeVote"].each do |vote_type| %>
+                  <% if !item[:votes][vote_type] %>
+                    <div class="small-poster">
+                      <img src="/assets/cast_your_vote" alt="Yet to vote">
+                    </div>
+                  <% else %>
+                    <div class="small-poster" >
+                      <img src=<%= item[:votes][vote_type]["poster"] %> alt=<%= item[:votes][vote_type]["title"] %> >
+                    </div>
+                  <% end %>
                 <% end %>
-              <% end %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="row">
+          <% 3.times do %>
+            <div class="small-poster">
+              <img src="/assets/cast_your_vote" alt="Yet to vote">
             </div>
           <% end %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
 </div>

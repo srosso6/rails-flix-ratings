@@ -30,8 +30,12 @@ class OmdbApi
       response = self.class.get(API_URL + "y=" + year[0] + "&t=" + film_title)
     end
     if response.success?
-      film_info = JSON.parse(response.body)
-      return create_film(film_info)
+      if response["Response"] == "False"
+        return nil
+      else
+        film_info = JSON.parse(response.body)
+        return create_film(film_info)
+      end
     else
       raise response.response
     end

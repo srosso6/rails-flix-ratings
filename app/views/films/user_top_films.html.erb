@@ -9,23 +9,37 @@
   </div>
 
   <div>
-    <% @data.each do |item| %>
-      <div class="row">
-        <p class="col-xs-1"><%= item[:decade] %></p>
-        <% ["GoldVote","SilverVote","BronzeVote"].each do |vote_type| %>
-          <% if !item[:votes][vote_type] %>
+    <% if logged_in? %>
+      <% @data.each do |item| %>
+        <div class="row">
+          <p class="col-xs-1"><%= item[:decade] %></p>
+          <% ["GoldVote","SilverVote","BronzeVote"].each do |vote_type| %>
+            <% if !item[:votes][vote_type] %>
+              <div class="top-film col-xs-3">
+                <img src="/assets/cast_your_vote" alt="Yet to vote">
+              </div>
+            <% else %>
+              <div class="top-film col-xs-3" >
+                <form action="/find_film/<%= item[:votes][vote_type]["imdb_id"] %>" method="get">
+                  <button type="submit"><img src=<%= item[:votes][vote_type]["poster"] %> alt=<%= item[:votes][vote_type]["title"] %> class="top_film_poster"></button>
+                </form>
+                <%= link_to 'Revoke Vote', vote_path(item[:votes][vote_type + "id"]), data: { confirm: 'Are you sure?' }, method: :delete %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    <% else %>
+      <% ["60", "70", "80", "90", "00", "10"].each do |item| %>
+        <div class="row">
+          <p class="col-xs-1"><%= item %></p>
+          <% 3.times do %>
             <div class="top-film col-xs-3">
               <img src="/assets/cast_your_vote" alt="Yet to vote">
             </div>
-          <% else %>
-            <div class="top-film col-xs-3" >
-              <form action="/find_film/<%= item[:votes][vote_type]["imdb_id"] %>" method="get">
-                <button type="submit"><img src=<%= item[:votes][vote_type]["poster"] %> alt=<%= item[:votes][vote_type]["title"] %> class="top_film_poster"></button>
-              </form>
-              <%= link_to 'Revoke Vote', vote_path(item[:votes][vote_type + "id"]), data: { confirm: 'Are you sure?' }, method: :delete %>
-            </div>
           <% end %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     <% end %>
+  </div>
 </div>
