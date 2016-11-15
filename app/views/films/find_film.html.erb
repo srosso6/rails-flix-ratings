@@ -20,9 +20,9 @@
 
           <h2>Is <%= @film[:title] %> one of your top 3 <%= @film[:decade] %>s  movies?</h2>
           <h2>Cast your vote!</h2>
-          <%= link_to image_tag("/assets/1.png"), {:controller => 'votes', :action => "vote", vote_type: "GoldVote", film_imdb_id: @film[:imdb_id] } %>
-          <%= link_to image_tag("/assets/2.png"), {:controller => 'votes', :action => "vote", vote_type: "SilverVote", film_imdb_id: @film[:imdb_id] } %>
-          <%= link_to image_tag("/assets/3.png"), {:controller => 'votes', :action => "vote", vote_type: "BronzeVote", film_imdb_id: @film[:imdb_id] } %>
+          <%= link_to image_tag("/assets/1.png"), {:controller => 'votes', :action => "vote", vote_type: "GoldVote", film_imdb_id: @film.imdb_id, decade: @film.decade } %>
+          <%= link_to image_tag("/assets/2.png"), {:controller => 'votes', :action => "vote", vote_type: "SilverVote", film_imdb_id: @film.imdb_id, decade: @film.decade } %>
+          <%= link_to image_tag("/assets/3.png"), {:controller => 'votes', :action => "vote", vote_type: "BronzeVote", film_imdb_id: @film.imdb_id, decade: @film.decade } %>
       </div>
     </div>
 

@@ -1,12 +1,11 @@
  class VoteService
 
   def manage_vote(vote_type, imdb_id, user_id)
-    # TODO: Tweak so cannot vote twice in same category
     film = get_film(imdb_id)
     if film
       vote = save_vote(vote_type, {user_id: user_id, film_id: film.id})
     else
-      # TODO: something else if film hasn't been found?
+      # TODO: something else if film hasn't been found
     end
     if vote
       update_ratings(film)
@@ -65,6 +64,24 @@
     for film in top_film_rankings
       Film.update(film[:film_id], ranking: film[:ranking])
     end
+  end
+
+  def previous_vote_in_category?(vote_type, imdb_id, user_id)
+    user = User.find_by(id: user_id)
+    film = get_film(imdb_id)
+    if user.votes
+      previous_vote = user.votes.select { |vote| vote.type == vote_type && vote.film_id == film.id }
+    end
+    return previous_vote[0]
+  end
+
+  def previous_vote_for_film?(imdb_id, user_id)
+    user = User.find_by(id: user_id)
+    film = get_film(imdb_id)
+    if user.votes
+      previous_vote = user.votes.select { |vote| vote.film_id == film.id }
+    end
+    return previous_vote[0]
   end
 
 end
