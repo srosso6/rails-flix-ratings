@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root 'films#top_films'   # should make this a welcome page
+  root 'welcome#index'   # should make this a welcome page
 
   get '/find_film/:imdb_id', to: 'films#find_film'
   get '/find_film', to: 'films#find_film'
