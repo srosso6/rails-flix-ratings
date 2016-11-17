@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -13,6 +13,9 @@
       <ul class="nav navbar-nav">
         <li><%= link_to "Top films", "/top_films" %></li>
         <li><%= link_to "Your Top films", "/user_top_films" %></li>
+        <% if logged_in? %>
+          <li><%= link_to "Your Account", "/users/" + current_user.id.to_s %></li>
+        <% end %>
       </ul>
       <form action='/find_film' id="film_search" method="get" class="navbar-form navbar-right">
         <div class="form-group">
@@ -23,11 +26,10 @@
           <label for="film_name">Film Year:</label>
           <input type="text" name="film_year" placeholder= "e.g. 1964" class="form-control">
         </div>
-        <button type="submit" class="btn btn-default">Search</button>
+        <button type="submit" class="nav-btn btn btn-default">Search</button>
       </form>
       <ul class="nav navbar-nav">
         <% if logged_in? %>
-          <li><%= link_to "Your Account", "/users/" + current_user.id.to_s %></li>
           <li><%= link_to "Logout", "/sessions/destroy", method: "delete" %></li>
         <% else %>
           <li><%= link_to "Login", "/sessions/new" %></li>

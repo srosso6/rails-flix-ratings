@@ -20,9 +20,9 @@ class FilmRanker
         films_by_decade[decade].reverse!
         films_by_decade[decade] = get_top_3_films(films_by_decade[decade])
       end
+      # TODO: something if some movies have the same rating
     end
     return films_by_decade
-    # TODO: something if some movies have the same ratings
   end
 
   def get_top_3_films(films)

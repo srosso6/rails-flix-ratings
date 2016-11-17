@@ -14,13 +14,69 @@
  *= require_self
  */
 
+body {
+  background-color: #1d1d1d;
+  color: #afafaf;
+  padding-top: 75px;
+}
+
+.navbar-default {
+  background-color: #000;
+  color: #F0250C !important;
+  border: none;
+}
+
+.navbar-default .navbar-nav li a:focus, .navbar-default .navbar-nav li a:hover {
+  color: #777;
+}
+
+.navbar-default .navbar-nav li a, .navbar-default .navbar-brand {
+  color: #F0250C;
+  font-weight: 700;
+}
+
+.navbar {
+  min-height: 70px;
+}
+
+.navbar-collapse, .navbar-header {
+  margin-top: 10px;
+}
+
+.panel {
+  background-color: #1B1B1B;
+  background-color: #000;
+}
+
+.panel-default {
+  border-color: #151515;
+}
+
+.form-control {
+  background-color: #5e5e5e;
+  border-color: #252525;
+}
+
+.nav-btn {
+  background-color: #5e5e5e;
+  border-color: #252525;
+  color: #F0250C;
+  font-weight: 700;
+}
+
 .main-header, .sub-header {
   text-align: center;
 }
 
+.main-header {
+  font-size: 3.5em;
+  font-weight: 700;
+}
+
 .top_nums {
   text-align: center;
-  margin: 50px 0;
+  margin-top: 50px;
+  margin-bottom: 50px;
   font-size: 2em;
 }
 
@@ -28,7 +84,113 @@
   display: block;
 }
 
-.top_film_poster {
+.top-film-poster {
+  width: 80%;
+  /*height: 100%;*/
+}
+
+.poster-btn {
+  padding: 0;
+  border: none;
+  margin: 10px 0;
+  background-color: #1d1d1d;
+}
+
+.top-film-poster-rank {
+  margin-top: 20%;
+  width: 80%;
+}
+
+.vote-btn img {
   width: 100%;
   height: 100%;
+}
+
+.top-film {
+  text-align: center;
+}
+
+#revoke-vote {
+  color: #F0250C;
+  text-decoration: none;
+}
+
+#revoke-vote:hover {
+  color: #777;
+  font-weight: 700;
+}
+
+#film_info_poster {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #151515;
+  border-radius: 4px;
+  padding: 1%;
+  height: 308.5785px;
+  width: 208.50px;
+}
+
+#film-info-page {
+  position: relative;
+}
+
+#outer-ratings {
+  position: absolute;
+  top: 30%;
+  right: 5%;
+  border: 1.5px solid #A11908;
+}
+
+#inner-ratings {
+  padding: 10px;;
+}
+
+#film-stats {
+  margin-top: 45px;
+  margin-bottom: 25px;
+}
+
+#inner-ratings p:nth-child(3) {
+  margin-bottom: 0;
+}
+
+#votes {
+  margin-top: 45px;
+  margin-bottom: 45px;
+}
+
+#film-info {
+  margin-top: 15px;
+}
+
+#cast-vote {
+  margin-top: 30px;
+}
+
+#decade-films {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.small-poster {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  max-width: 20%;
+}
+
+#small-poster-num {
+  text-align: center;
+}
+
+.decade {
+  margin-top: 12%;
+  /*margin-left: 5%;*/
+  font-weight: 700;
+  font-size: 2em;
+}
+
+#panel-title {
+  font-weight: 700;
+  margin-top: 10px;
+  text-align: center;
 }

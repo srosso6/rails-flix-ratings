@@ -1,0 +1,11 @@
+class RatingCalculator
+  def calculate flix rating (film)
+    Set score to zero
+    Set count to zero
+    For each film vote
+      Add the rating value of vote to the score
+      Add 1 to the count
+    end for
+    Divide the score by the count to calculate the flix rating
+    Round the flix rating to 2 decimal places
+    Return the flix rating

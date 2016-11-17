@@ -3,7 +3,7 @@
   <h3 class="sub-header">You are yet to vote in each category! Search for your favourite films and cast your vote!</h3>
 
   <div class="row">
-    <h2 class="col-xs-3 col-md-offset-1 top_nums">1</h2>
+    <h2 class="col-xs-3 col-md-offset-2 top_nums">1</h2>
     <h2 class="col-xs-3 top_nums">2</h2>
     <h2 class="col-xs-3 top_nums">3</h2>
   </div>
@@ -12,18 +12,18 @@
     <% if logged_in? %>
       <% @data.each do |item| %>
         <div class="row">
-          <p class="col-xs-1"><%= item[:decade] %></p>
+          <p class="decade col-xs-2"><%= item[:decade] %></p>
           <% ["GoldVote","SilverVote","BronzeVote"].each do |vote_type| %>
             <% if !item[:votes][vote_type] %>
               <div class="top-film col-xs-3">
-                <img src="/assets/cast_your_vote" alt="Yet to vote">
+                <img src="<%= "/assets/#{vote_type}.png" %>" alt="Yet to vote" class="top-film-poster-rank img-responsive center-block">
               </div>
             <% else %>
               <div class="top-film col-xs-3" >
                 <form action="/find_film/<%= item[:votes][vote_type]["imdb_id"] %>" method="get">
-                  <button type="submit"><img src=<%= item[:votes][vote_type]["poster"] %> alt=<%= item[:votes][vote_type]["title"] %> class="top_film_poster"></button>
+                  <button type="submit" class="poster-btn"><img src=<%= item[:votes][vote_type]["poster"] %> alt=<%= item[:votes][vote_type]["title"] %> class="top-film-poster img-responsive center-block"></button>
                 </form>
-                <%= link_to 'Revoke Vote', vote_path(item[:votes][vote_type + "id"]), data: { confirm: 'Are you sure?' }, method: :delete %>
+                <%= link_to 'Revoke Vote', vote_path(item[:votes][vote_type + "id"]), data: { confirm: 'Are you sure?' }, method: :delete, id: "revoke-vote" %>
               </div>
             <% end %>
           <% end %>
@@ -32,10 +32,10 @@
     <% else %>
       <% ["60", "70", "80", "90", "00", "10"].each do |item| %>
         <div class="row">
-          <p class="col-xs-1"><%= item %></p>
+          <p class="decade col-xs-2"><%= item %></p>
           <% 3.times do %>
             <div class="top-film col-xs-3">
-              <img src="/assets/cast_your_vote" alt="Yet to vote">
+              <img src="<%= "/assets/#{vote_type}.png" %>" alt="Yet to vote" class="top-film-poster-rank img-responsive center-block">
             </div>
           <% end %>
         </div>
