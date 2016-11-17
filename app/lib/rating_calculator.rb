@@ -8,7 +8,6 @@ class RatingCalculator
       count += 1
     end
     flix_rating = (score.to_f / count.to_f).round(2)
-    puts flix_rating
     return relative(flix_rating)
   end
 
@@ -17,7 +16,6 @@ class RatingCalculator
   end
 
   def combined_rating(film)
-    puts film.flix_rating
     if film.flix_rating == nil
       return nil
     else

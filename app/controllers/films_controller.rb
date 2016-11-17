@@ -26,9 +26,10 @@ class FilmsController < ApplicationController
   def top_films
     @data = []
     @films = Film.where(ranking: 1..3)
-    [60, 70, 80, 90, 0, 10].each do |decade|
+    ["60s", "70s", "80s", "90s", "00s", "10s"].each do |decade|
       top_films_in_decade = {}
       for film in @films
+        puts film.decade
         if film.decade == decade
           top_films_in_decade[film.ranking] = film
         end
@@ -40,7 +41,7 @@ class FilmsController < ApplicationController
   def user_top_films
     if logged_in?
       @data = []
-      [60, 70, 80, 90, 0, 10].each do |decade|
+      ["60s", "70s", "80s", "90s", "00s", "10s"].each do |decade|
          votes = current_user.votes.select {|vote| vote.film.decade == decade}
          votes_in_decade = {}
          for vote in votes

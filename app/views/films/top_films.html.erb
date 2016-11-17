@@ -12,31 +12,39 @@
     <% if @data %>
       <% @data.each do |item| %>
         <div class="row">
-          <p class="decade col-xs-2"><%= item[:decade] %></p>
-          <% [1, 2, 3].each do |ranking| %>
-            <% if !item[:top_films][ranking] %>
-              <div class="top-film col-xs-3">
-                <img src="<%= "/assets/#{ranking}.png" %>" alt="No vote yet" class="top-film-poster-rank img-responsive center-block">
-              </div>
-            <% else %>
-              <div class="top-film col-xs-3" >
-                <form action="/find_film/<%= item[:top_films][ranking]["imdb_id"] %>" method="get">
-                  <button type="submit" class="poster-btn"><img src=<%= item[:top_films][ranking]["poster"] %> alt=<%= item[:top_films][ranking]["title"] %> class="top-film-poster img-responsive center-block"></button>
-                </form>
-              </div>
-            <% end %>
-          <% end %>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p class="decade col-xs-2"><%= item[:decade] %></p>
+              <% [1, 2, 3].each do |ranking| %>
+                <% if !item[:top_films][ranking] %>
+                  <div class="top-film col-xs-3">
+                    <img src="<%= "/assets/#{ranking}.png" %>" alt="No vote yet" class="top-film-poster-rank img-responsive center-block">
+                  </div>
+                <% else %>
+                  <div class="top-film col-xs-3" >
+                    <form action="/find_film/<%= item[:top_films][ranking]["imdb_id"] %>" method="get">
+                      <button type="submit" class="poster-btn"><img src=<%= item[:top_films][ranking]["poster"] %> alt=<%= item[:top_films][ranking]["title"] %> class="top-film-poster img-responsive center-block"></button>
+                    </form>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
         </div>
       <% end %>
     <% else %>
-      <% ["60", "70", "80", "90", "00", "10"].each do |item| %>
+      <% ["60s", "70s", "80s", "90s", "00s", "10s"].each do |item| %>
         <div class="row">
-          <p class="decade col-xs-2"><%= item[:decade] %></p>->
-          <% [1, 2, 3].each do |ranking| %>
-            <div class="top-film col-xs-3">
-              <img src="<%= "/assets/#{ranking}.png" %>" alt="No vote yet" class="top-film-poster-rank img-responsive center-block">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p class="decade col-xs-2"><%= item[:decade] %></p>->
+              <% [1, 2, 3].each do |ranking| %>
+                <div class="top-film col-xs-3">
+                  <img src="<%= "/assets/#{ranking}.png" %>" alt="No vote yet" class="top-film-poster-rank img-responsive center-block">
+                </div>
+              <% end %>
             </div>
-          <% end %>
+          </div>
         </div>
       <% end %>
     <% end %>

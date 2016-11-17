@@ -14,7 +14,7 @@ class FilmRanker
   end
 
   def get_top_3_films_by_combined_rating(films_by_decade)
-    [60, 70, 80, 90, 0, 10].each do |decade|
+    ["60s", "70s", "80s", "90s", "00s", "10s"].each do |decade|
       if films_by_decade[decade]
         films_by_decade[decade].sort_by! {|film| film.combined_rating}
         films_by_decade[decade].reverse!
@@ -35,7 +35,7 @@ class FilmRanker
 
   def save_film_ranking(top_films)
     top_film_rankings = []
-    [60, 70, 80, 90, 0, 10].each do |decade|
+    ["60s", "70s", "80s", "90s", "00s", "10s"].each do |decade|
       if top_films[decade]
         i = 1
         while i < top_films[decade].length + 1

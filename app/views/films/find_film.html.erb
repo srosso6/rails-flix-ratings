@@ -1,5 +1,5 @@
 <div class="container">
-  <h3 class="main-header">The <%= @film[:decade] %>s</h3>
+  <!-- <h3 class="main-header">The <%= @film[:decade] %>s</h3> -->
   <div id="film-info-page">
     <div class="col-xs-4">
       <div >
@@ -7,7 +7,7 @@
       </div>
       <div id="decade-films" class="panel panel-default">
         <!-- <div class="panel-heading"> -->
-          <h4 id="panel-title">Your top rated films of the <%= @film[:decade] %>s:</h4>
+          <h4 id="panel-title">Your top rated films of the <%= @film[:decade] %>:</h4>
         <!-- </div> -->
         <% if logged_in? %>
           <div class="panel-body">
@@ -63,7 +63,7 @@
     </div>
     <div id="cast-vote" class="panel panel-default col-xs-8">
       <div class="panel-body">
-        <h3>Is <%= @film[:title] %> one of your top 3 <%= @film[:decade] %>s  movies?</h3>
+        <h3>Is <%= @film[:title] %> one of your top 3 <%= @film[:decade] %>  movies?</h3>
         <h3>Cast your vote!</h3>
         <div id="votes" class="col-xs-12">
           <%= link_to image_tag("/assets/1.png"), {:controller => 'votes', :action => "vote", vote_type: "GoldVote", film_imdb_id: @film.imdb_id, decade: @film.decade }, { class: "vote-btn img-responsive col-xs-4" } %>

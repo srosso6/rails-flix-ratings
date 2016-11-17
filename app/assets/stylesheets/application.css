@@ -15,9 +15,9 @@
  */
 
 body {
-  background-color: #1d1d1d;
+  background-color: #0b0b0b;
   color: #afafaf;
-  padding-top: 75px;
+  padding-top: 90px;
 }
 
 .navbar-default {
@@ -93,7 +93,7 @@ body {
   padding: 0;
   border: none;
   margin: 10px 0;
-  background-color: #1d1d1d;
+  background-color: #000;
 }
 
 .top-film-poster-rank {
@@ -184,7 +184,6 @@ body {
 
 .decade {
   margin-top: 12%;
-  /*margin-left: 5%;*/
   font-weight: 700;
   font-size: 2em;
 }

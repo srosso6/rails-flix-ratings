@@ -53,7 +53,7 @@ class OmdbApi
 
   def find_decade(release_date)
     date = Date.parse(release_date)
-    decade = date.year.to_s.slice(2) + "0"
+    decade = date.year.to_s.slice(2) + "0s"
     return decade
   end
 

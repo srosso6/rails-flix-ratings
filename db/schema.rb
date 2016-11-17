@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161110140738) do
+ActiveRecord::Schema.define(version: 20161117160038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20161110140738) do
     t.integer  "ranking"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.integer  "decade"
+    t.string   "decade"
     t.string   "director"
     t.float    "combined_rating"
     t.index ["imdb_id"], name: "index_films_on_imdb_id", unique: true, using: :btree
