@@ -10,7 +10,7 @@ class FilmRankerTest < ActiveSupport::TestCase
         imdb_id: "tt1375666",
         title: "Inception",
         release_date: "16 Jul 2010",
-        decade: 10,
+        decade: "10s",
         director: "Christopher Nolan",
         genre: "Action, Adventure, Sci-Fi",
         description: "A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.",
@@ -28,7 +28,7 @@ class FilmRankerTest < ActiveSupport::TestCase
         imdb_id: "tt0059742",
         title: "The Sound of Music",
         release_date: "29 Mar 1965",
-        decade: 60,
+        decade: "60s",
         director: "Robert Wise",
         genre: "Biography, Drama, Family",
         description: "A woman leaves an Austrian convent to become a governess to the children of a Naval officer widower.",
@@ -46,7 +46,7 @@ class FilmRankerTest < ActiveSupport::TestCase
         imdb_id: "tt0204946",
         title: "Bring It On",
         release_date: "25 Aug 2000",
-        decade: 0,
+        decade: "00s",
         director: "Peyton Reed",
         genre: "Comedy, Sport",
         description: "A champion high school cheerleading squad discovers its previous captain stole all their best routines from an inner-city school and must scramble to compete at this year's championships.",
@@ -64,7 +64,7 @@ class FilmRankerTest < ActiveSupport::TestCase
         imdb_id: "tt0058331",
         title: "Mary Poppins",
         release_date: "11 Sep 1964",
-        decade: 60,
+        decade: "60s",
         director: "Robert Stevenson",
         genre: "Comedy, Family, Fantasy",
         description: "A magic nanny comes to work for a cold banker's unhappy family.",
@@ -82,7 +82,7 @@ class FilmRankerTest < ActiveSupport::TestCase
         imdb_id: "tt0338013",
         title: "Eternal Sunshine of the Spotless Mind",
         release_date: "19 Mar 2004",
-        decade: 0,
+        decade: "00s",
         director: "Michel Gondry",
         genre: "Drama, Fantasy, Romance",
         description: "When their relationship turns sour, a couple undergoes a procedure to have each other erased from their memories. But it is only through the process of loss that they discover what they had to begin with.",
@@ -103,13 +103,13 @@ class FilmRankerTest < ActiveSupport::TestCase
 
   test "should group films by decade" do
     films_by_decade = @film_ranker.group_films_by_decade(@films)
-    assert_equal({10 =>[@film_1], 60 =>[@film_2, @film_4], 0=>[@film_3, @film_5]}, films_by_decade)
+    assert_equal({"10s" =>[@film_1], "60s" =>[@film_2, @film_4], "00s"=>[@film_3, @film_5]}, films_by_decade)
   end
 
   test "should sort films by rating" do
     films_by_decade = @film_ranker.group_films_by_decade(@films)
     top_films = @film_ranker.get_top_3_films_by_combined_rating(films_by_decade)
-    assert_equal({10 =>[@film_1], 60 =>[@film_4, @film_2], 0=>[@film_5, @film_3]}, top_films)
+    assert_equal({"10s" =>[@film_1], "60s" =>[@film_4, @film_2], "00s"=>[@film_5, @film_3]}, top_films)
   end
 
   test "should create array with first three items" do
