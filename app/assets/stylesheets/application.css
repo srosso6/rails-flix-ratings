@@ -43,6 +43,10 @@ body {
   margin-top: 10px;
 }
 
+.nav-input {
+  color: #fff;
+}
+
 .panel {
   background-color: #1B1B1B;
   background-color: #000;
@@ -57,11 +61,30 @@ body {
   border-color: #252525;
 }
 
-.nav-btn {
+.nav-btn, .login-reg-btn {
   background-color: #5e5e5e;
   border-color: #252525;
   color: #F0250C;
   font-weight: 700;
+}
+
+.login-reg-btn {
+  margin-top: 20px;
+  width: 30%;
+}
+
+.form-container {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.user-info {
+  margin-top: 40px;
+}
+
+.form-control {
+  width: 70%;
+  margin: 0 auto;
 }
 
 .main-header, .sub-header {
@@ -110,7 +133,7 @@ body {
   text-align: center;
 }
 
-#revoke-vote {
+#simple-link {
   color: #F0250C;
   text-decoration: none;
 }

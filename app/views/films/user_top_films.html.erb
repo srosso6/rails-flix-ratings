@@ -25,7 +25,7 @@
                     <form action="/find_film/<%= item[:votes][vote_type]["imdb_id"] %>" method="get">
                       <button type="submit" class="poster-btn"><img src=<%= item[:votes][vote_type]["poster"] %> alt=<%= item[:votes][vote_type]["title"] %> class="top-film-poster img-responsive center-block"></button>
                     </form>
-                    <%= link_to 'Revoke Vote', vote_path(item[:votes][vote_type + "id"]), data: { confirm: 'Are you sure?' }, method: :delete, id: "revoke-vote" %>
+                    <%= link_to 'Revoke Vote', vote_path(item[:votes][vote_type + "id"]), data: { confirm: 'Are you sure?' }, method: :delete, id: "simple-link" %>
                   </div>
                 <% end %>
               <% end %>
