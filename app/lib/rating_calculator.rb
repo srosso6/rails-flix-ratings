@@ -7,19 +7,16 @@ class RatingCalculator
       score += vote.rating_value
       count += 1
     end
-    flix_rating = (score.to_f / count.to_f).round(2)
-    return relative(flix_rating)
-  end
-
-  def relative(flix_rating)
-    return flix_rating * 2
+    return (score.to_f / count.to_f).round(2)
   end
 
   def combined_rating(film)
     if film.flix_rating == nil
       return nil
     else
-      return ((film.tomatoes_rating + film.imdb_rating + film.flix_rating) / 3).round(2)
+      weighted_imdb_rating = film.imdb_rating / 4
+      weighted_tomatoes_rating = film.tomatoes_rating / 4
+      return ((weighted_tomatoes_rating + weighted_imdb_rating + film.flix_rating) / 3).round(2)
     end
   end
 

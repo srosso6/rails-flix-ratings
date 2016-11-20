@@ -42,7 +42,7 @@ class RatingCalculatorTest < ActiveSupport::TestCase
 
   test "should calculate combined film rating" do
     rating = @rating_calc.combined_rating(@film_1)
-    assert_equal 7.7, rating
+    assert_equal 3.70, rating
   end
 
   test "should not calculate combined film rating" do
