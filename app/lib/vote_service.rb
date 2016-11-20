@@ -66,13 +66,18 @@
     end
   end
 
-  def previous_vote_in_category?(vote_type, imdb_id, user_id)
+  def previous_vote_in_category?(vote_type, user_id, decade)
     user = User.find_by(id: user_id)
-    film = get_film(imdb_id)
     if user.votes
-      previous_vote = user.votes.select { |vote| vote.type == vote_type && vote.film_id == film.id }
+      for vote in user.votes
+        vote_film = Film.find_by(id: vote.film_id)
+        if vote.type == vote_type && vote_film.decade == decade
+          return vote
+        else
+          return nil
+        end
+      end
     end
-    return previous_vote[0]
   end
 
   def previous_vote_for_film?(imdb_id, user_id)

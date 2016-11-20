@@ -12,8 +12,8 @@ class VotesController < ApplicationController
       flash[:danger] = "You have already cast a vote for this film"
       redirect_to controller: 'films', action: 'find_film', imdb_id: params[:film_imdb_id]
 
-    elsif vote_service.previous_vote_in_category?(params[:vote_type], params[:film_imdb_id], current_user.id)
-      flash[:danger] = "You have already cast a #{params[:vote_type]} for the #{params[:decade]}s"
+    elsif vote_service.previous_vote_in_category?(params[:vote_type], current_user.id, params[:decade])
+      flash[:danger] = "You have already cast a #{params[:vote_type]} for the #{params[:decade]}"
       redirect_to controller: 'films', action: 'find_film', imdb_id: params[:film_imdb_id]
 
     else
