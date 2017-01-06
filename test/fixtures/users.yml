@@ -3,11 +3,11 @@
 one:
   id: 1
   username: saurus
-  email_address: saurus@flixapp.com
-  password_digest: 123
+  email_address: saurus@example.com
+  password_digest: 123123a?
 
 two:
   id: 2
-  username: penny
-  email_address: penelope@example.com
-  password_digest: 891
+  username: squigg
+  email_address: steve@example.com
+  password_digest: 456456b!
