@@ -10,6 +10,6 @@ Create database - `rake db:create`
 Seed database - `rake db:seed`
 Run server - `rails server`
 
-You can login and vote for films using the following details:
+You can login and vote for films using the following details - 
   username: guest
   password: guest1
