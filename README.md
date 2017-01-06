@@ -7,7 +7,7 @@ It is a full-stack app created in Rails using a PostgreSQL database and Bootstra
 If you would like to view this app in the browser, please seed the database first for a better experience.
 
 Create database - `rake db:create`,
-Seed database - `rake db:seed`
+Seed database - `rake db:seed`,
 Run server - `rails server`
 
 You can login and vote for films using the following details -
